@@ -1,59 +1,59 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './index.css'
 import { Layout } from 'antd';
-import {
-    UserOutlined,
-    // NotificationOutlined,
-    TableOutlined,
-    LaptopOutlined,
-    UnorderedListOutlined
-} from '@ant-design/icons';
+import axios from 'axios';
+// import {
+//     UserOutlined,
+//     NotificationOutlined,
+//     TableOutlined,
+//     LaptopOutlined,
+//     UnorderedListOutlined,
+//     SettingOutlined,
+//     SaveOutlined,
+//     AuditOutlined,
+//     VideoCameraAddOutlined
+// } from '@ant-design/icons';
+import * as AntIcons from '@ant-design/icons';
 import { Menu } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const { Sider } = Layout;
+
 export default function SideMenu() {
+    const location = useLocation();
+    const selectKeys = [location.pathname]; 
+    const defaultOpenKeys = ['/' + location.pathname.split("/")[1]];
+
+
     const [collapsed] = useState(false);
-    // 在这里一般由后端返回数据后再做处理，拼接
-    const menuItems = [
-        {
-            key: '1',
-            icon: <LaptopOutlined />,
-            label: '首页',
-            path: '/'
-        }, {
-            key: '2',
-            icon: <UserOutlined />,
-            label: '用户管理',
-            path: '/user-manage/UserList',
-            children: [
-                {
-                    key: '3',
-                    label: `用户列表`,
-                    icon: <UnorderedListOutlined />,
-                    path: '/user-manage/UserList',
+    const addIconToMenu = (arr) => {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].icon) {
+                arr[i].icon = React.createElement(AntIcons[arr[i].icon]);
+            }
+        }
+        return arr;
+
+    }
+
+
+    const [menuItems, setMenuItems] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:5000/rights").then((res) => {
+            let temp = addIconToMenu(res.data);
+
+            temp.forEach(item => {
+                if (item?.children.length === 0) {
+                    delete item.children
                 }
-            ]
-        }, {
-            key: '4',
-            icon: <UserOutlined />,
-            label: '权限管理',
-            path: '/right-manage/RoleList',
-            children: [
-                {
-                    key: '5',
-                    label: `角色列表`,
-                    icon: <TableOutlined />,
-                    path: '/right-manage/RoleList',
-                }, {
-                    key: '6',
-                    label: `权限列表`,
-                    icon: <UnorderedListOutlined />,
-                    path: '/right-manage/RightList'
-                }
-            ]
-        },
-    ]
+            })
+            console.log(temp);
+            setMenuItems(temp);
+        })
+    }, [])
+
+
     const navigate = useNavigate();
     // 递归写法
     /**
@@ -69,9 +69,9 @@ export default function SideMenu() {
                 activeItem = menuItems[i];
                 break;
             }
-            if (menuItems[i].children) {
+            else if (menuItems[i].children) {
                 activeItem = findKey(key, menuItems[i].children);
-                if(activeItem){
+                if (activeItem) {
                     break;
                 }
             }
@@ -83,26 +83,35 @@ export default function SideMenu() {
         let key = e.key;
         const selectedItem = findKey(key, menuItems)
         if (selectedItem) {
-            navigate(selectedItem.path, {
+            navigate(selectedItem.key, {
                 replace: true
             });
         }
     };
     return (
         // <div>
-        <Sider trigger={null} collapsible={true} collapsed={collapsed}>
-            <div className="demo-logo-vertical">
-                全球新闻发布管理系统
-            </div>  
+        <Sider trigger={null} collapsible={true} collapsed={collapsed} style={{
+            borderRadius: "4px"
+        }}>
+            <div style={{
+                display: "flex", height: "100%", flexDirection: "column"
+            }}>
+                <div className="demo-logo-vertical">
+                    全球新闻发布管理系统
+                </div>
+                <div style={{ overflow: "auto", flex: 1 }}>
+                    <Menu
+                        theme="dark"
+                        mode="inline"
+                        selectedKeys={selectKeys}
+                        defaultOpenKeys={defaultOpenKeys}
+                        onClick={handleMenuOnClick}
+                        items={menuItems}
+                    />  
+                </div>
 
-            <Menu
-                theme="dark"
-                mode="inline"
-                defaultSelectedKeys={['4']}
-                defaultOpenKeys={['4']}
-                onClick={handleMenuOnClick}
-                items={menuItems}
-            />
+            </div>
+
         </Sider>
         // </div>
 
