@@ -1,31 +1,30 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux';
 import './index.css'
 import { Layout } from 'antd';
-import axios from 'axios';
-// import {
-//     UserOutlined,
-//     NotificationOutlined,
-//     TableOutlined,
-//     LaptopOutlined,
-//     UnorderedListOutlined,
-//     SettingOutlined,
-//     SaveOutlined,
-//     AuditOutlined,
-//     VideoCameraAddOutlined
-// } from '@ant-design/icons';
+import axiosInstance from '../../api/axiosInstance';
 import * as AntIcons from '@ant-design/icons';
 import { Menu } from 'antd';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const { Sider } = Layout;
 
-export default function SideMenu() {
+const mapStateToProps = (state) => {
+    console.log('state', state );
+    const { isCollapsed } = state.collapse;
+    return {
+        isCollapsed
+    }
+
+}
+
+ function SideMenu(props) {
     const location = useLocation();
     const selectKeys = [location.pathname]; 
     const defaultOpenKeys = ['/' + location.pathname.split("/")[1]];
 
 
-    const [collapsed] = useState(false);
+    // const [collapsed] = useState(false);
     const addIconToMenu = (arr) => {
         for (let i = 0; i < arr.length; i++) {
             if (arr[i].icon) {
@@ -40,7 +39,7 @@ export default function SideMenu() {
     const [menuItems, setMenuItems] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/rights").then((res) => {
+        axiosInstance.get('/rights').then((res) => {
             let temp = addIconToMenu(res.data);
 
             temp.forEach(item => {
@@ -90,7 +89,7 @@ export default function SideMenu() {
     };
     return (
         // <div>
-        <Sider trigger={null} collapsible={true} collapsed={collapsed} style={{
+        <Sider trigger={null} collapsible={true} collapsed={props.isCollapsed} style={{
             borderRadius: "4px"
         }}>
             <div style={{
@@ -117,3 +116,5 @@ export default function SideMenu() {
 
     )
 }
+
+export default connect(mapStateToProps)(SideMenu)

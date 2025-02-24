@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "admin",
       "password": 123456,
       "roleState": true,
@@ -16,7 +16,7 @@
       "default": false,
       "region": "亚洲",
       "roleId": 2,
-      "id": 2,
+      "id": "2",
       "data": {
         "username": "铁锤",
         "password": "123456",
@@ -31,7 +31,7 @@
       "default": false,
       "region": "南极洲",
       "roleId": 2,
-      "id": 3
+      "id": "3"
     },
     {
       "username": "诸葛山珍",
@@ -40,7 +40,7 @@
       "default": false,
       "region": "",
       "roleId": 1,
-      "id": 4,
+      "id": "4",
       "data": {
         "roleState": true
       }
@@ -52,7 +52,7 @@
       "default": false,
       "region": "南极洲",
       "roleId": 3,
-      "id": 5
+      "id": "5"
     },
     {
       "username": "轩辕翠花",
@@ -61,7 +61,7 @@
       "default": false,
       "region": "南极洲",
       "roleId": 3,
-      "id": 6
+      "id": "6"
     },
     {
       "username": "司马海味",
@@ -70,7 +70,7 @@
       "default": false,
       "region": "亚洲",
       "roleId": 3,
-      "id": 7
+      "id": "7"
     },
     {
       "username": "咕噜墩子",
@@ -79,12 +79,12 @@
       "default": false,
       "region": "亚洲",
       "roleId": 3,
-      "id": 8
+      "id": "8"
     }
   ],
   "roles": [
     {
-      "id": 1,
+      "id": "1",
       "roleName": "超级管理员",
       "roleType": 1,
       "rights": [
@@ -118,7 +118,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "roleName": "区域管理员",
       "roleType": 2,
       "rights": [
@@ -145,7 +145,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "roleName": "区域编辑",
       "roleType": 3,
       "rights": [
@@ -168,7 +168,7 @@
   ],
   "rights": [
     {
-      "id": 1,
+      "id": "1",
       "label": "首页",
       "key": "/home",
       "pagepermisson": 1,
@@ -177,7 +177,7 @@
       "children": []
     },
     {
-      "id": 2,
+      "id": "2",
       "label": "用户管理",
       "key": "/user-manage",
       "pagepermisson": 1,
@@ -216,7 +216,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": "7",
       "label": "权限管理",
       "key": "/right-manage",
       "pagepermisson": 1,
@@ -270,7 +270,7 @@
       ]
     },
     {
-      "id": 14,
+      "id": "14",
       "label": "新闻管理",
       "key": "/news-manage",
       "pagepermisson": 1,
@@ -327,7 +327,7 @@
       ]
     },
     {
-      "id": 21,
+      "id": "21",
       "label": "审核管理",
       "key": "/audit-manage",
       "pagepermisson": 1,
@@ -353,7 +353,7 @@
       ]
     },
     {
-      "id": 24,
+      "id": "24",
       "label": "发布管理",
       "key": "/publish-manage",
       "pagepermisson": 1,
@@ -385,11 +385,29 @@
           "grade": 2
         }
       ]
+    },
+    {
+      "id": "28",
+      "label": "拖拽",
+      "key": "/react-grid-layout",
+      "pagepermisson": 1,
+      "grade": 1,
+      "idon": "VideoCameraAddOutlined",
+      "children": [
+        {
+          "id": 29,
+          "label": "拖拽1",
+          "rightId": 28,
+          "key": "/react-grid-layout/demo",
+          "pagepermisson": 1,
+          "grade": 2
+        }
+      ]
     }
   ],
   "rights2": [
     {
-      "id": 1,
+      "id": "1",
       "label": "首页",
       "key": "/home",
       "pagepermisson": 1,
@@ -397,7 +415,7 @@
       "icon": "LaptopOutlined"
     },
     {
-      "id": 2,
+      "id": "2",
       "label": "用户管理",
       "key": "/user-manage",
       "pagepermisson": 1,
@@ -405,7 +423,7 @@
       "icon": "UserOutlined"
     },
     {
-      "id": 7,
+      "id": "7",
       "label": "权限管理",
       "key": "/right-manage",
       "pagepermisson": 1,
@@ -413,15 +431,15 @@
       "icon": "SettingOutlined"
     },
     {
-      "id": 14,
-      "label": "新闻管理",  
+      "id": "14",
+      "label": "新闻管理",
       "key": "/news-manage",
       "pagepermisson": 1,
       "grade": 1,
       "icon": "SaveOutlined"
     },
     {
-      "id": 21,
+      "id": "21",
       "label": "审核管理",
       "key": "/audit-manage",
       "pagepermisson": 1,
@@ -429,7 +447,7 @@
       "icon": "AuditOutlined"
     },
     {
-      "id": 24,
+      "id": "24",
       "label": "发布管理",
       "key": "/publish-manage",
       "pagepermisson": 1,
@@ -439,28 +457,28 @@
   ],
   "children": [
     {
-      "id": 3,
+      "id": "3",
       "label": "添加用户",
       "rightId": 2,
       "key": "/user-manage/add",
       "grade": 2
     },
     {
-      "id": 4,
+      "id": "4",
       "label": "删除用户",
       "rightId": 2,
       "key": "/user-manage/delete",
       "grade": 2
     },
     {
-      "id": 5,
+      "id": "5",
       "label": "修改用户",
       "rightId": 2,
       "key": "/user-manage/update",
       "grade": 2
     },
     {
-      "id": 6,
+      "id": "6",
       "label": "用户列表",
       "rightId": 2,
       "key": "/user-manage/list",
@@ -468,7 +486,7 @@
       "grade": 2
     },
     {
-      "id": 8,
+      "id": "8",
       "label": "角色列表",
       "rightId": 7,
       "key": "/right-manage/role/list",
@@ -476,7 +494,7 @@
       "grade": 2
     },
     {
-      "id": 9,
+      "id": "9",
       "label": "权限列表",
       "rightId": 7,
       "key": "/right-manage/right/list",
@@ -484,42 +502,42 @@
       "grade": 2
     },
     {
-      "id": 10,
+      "id": "10",
       "label": "修改角色",
       "rightId": 7,
       "key": "/right-manage/role/update",
       "grade": 2
     },
     {
-      "id": 11,
+      "id": "11",
       "label": "删除角色",
       "rightId": 7,
       "key": "/right-manage/role/delete",
       "grade": 2
     },
     {
-      "id": 12,
+      "id": "12",
       "label": "修改权限",
       "rightId": 7,
       "key": "/right-manage/right/update",
       "grade": 2
     },
     {
-      "id": 13,
+      "id": "13",
       "label": "删除权限",
       "rightId": 7,
       "key": "/right-manage/right/delete",
       "grade": 2
     },
     {
-      "id": 15,
+      "id": "15",
       "label": "新闻列表",
       "rightId": 14,
       "key": "/news-manage/list",
       "grade": 2
     },
     {
-      "id": 16,
+      "id": "16",
       "label": "撰写新闻",
       "rightId": 14,
       "key": "/news-manage/add",
@@ -527,7 +545,7 @@
       "pagepermisson": 1
     },
     {
-      "id": 17,
+      "id": "17",
       "label": "新闻更新",
       "rightId": 14,
       "key": "/news-manage/update/:id",
@@ -535,7 +553,7 @@
       "routepermisson": 1
     },
     {
-      "id": 18,
+      "id": "18",
       "label": "新闻预览",
       "rightId": 14,
       "key": "/news-manage/preview/:id",
@@ -543,7 +561,7 @@
       "routepermisson": 1
     },
     {
-      "id": 19,
+      "id": "19",
       "label": "草稿箱",
       "rightId": 14,
       "key": "/news-manage/draft",
@@ -551,7 +569,7 @@
       "grade": 2
     },
     {
-      "id": 20,
+      "id": "20",
       "label": "新闻分类",
       "rightId": 14,
       "key": "/news-manage/category",
@@ -559,7 +577,7 @@
       "grade": 2
     },
     {
-      "id": 22,
+      "id": "22",
       "label": "审核新闻",
       "rightId": 21,
       "key": "/audit-manage/audit",
@@ -567,7 +585,7 @@
       "grade": 2
     },
     {
-      "id": 23,
+      "id": "23",
       "label": "审核列表",
       "rightId": 21,
       "key": "/audit-manage/list",
@@ -575,7 +593,7 @@
       "grade": 2
     },
     {
-      "id": 25,
+      "id": "25",
       "label": "待发布",
       "rightId": 24,
       "key": "/publish-manage/unpublished",
@@ -583,7 +601,7 @@
       "grade": 2
     },
     {
-      "id": 26,
+      "id": "26",
       "label": "已发布",
       "rightId": 24,
       "key": "/publish-manage/published",
@@ -591,7 +609,7 @@
       "grade": 2
     },
     {
-      "id": 27,
+      "id": "27",
       "label": "已下线",
       "rightId": 24,
       "key": "/publish-manage/sunset",
@@ -601,69 +619,69 @@
   ],
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "label": "时事新闻",
       "value": "时事新闻"
     },
     {
-      "id": 2,
+      "id": "2",
       "label": "环球经济",
       "value": "环球经济"
     },
     {
-      "id": 3,
+      "id": "3",
       "label": "科学技术",
       "value": "科学技术"
     },
     {
-      "id": 4,
+      "id": "4",
       "label": "军事世界",
       "value": "军事世界"
     },
     {
-      "id": 5,
+      "id": "5",
       "label": "世界体育",
       "value": "世界体育"
     },
     {
-      "id": 6,
+      "id": "6",
       "label": "生活理财",
       "value": "生活理财"
     }
   ],
   "regions": [
     {
-      "id": 1,
+      "id": "1",
       "label": "亚洲",
       "value": "亚洲"
     },
     {
-      "id": 2,
+      "id": "2",
       "label": "欧洲",
       "value": "欧洲"
     },
     {
-      "id": 3,
+      "id": "3",
       "label": "北美洲",
       "value": "北美洲"
     },
     {
-      "id": 4,
+      "id": "4",
       "label": "南美洲",
       "value": "南美洲"
     },
     {
-      "id": 5,
+      "id": "5",
       "label": "非洲",
       "value": "非洲"
     },
     {
-      "id": 6,
+      "id": "6",
       "label": "大洋洲",
       "value": "大洋洲"
     },
     {
-      "id": 7,
+      "id": "7",
       "label": "南极洲",
       "value": "南极洲"
     }
@@ -681,7 +699,7 @@
       "createTime": 1615777743864,
       "star": 1010,
       "view": 2014,
-      "id": 1,
+      "id": "1",
       "publishTime": 1615778496314
     },
     {
@@ -696,7 +714,7 @@
       "createTime": 1615778694831,
       "star": 500,
       "view": 809,
-      "id": 2,
+      "id": "2",
       "publishTime": 1615778911028
     },
     {
@@ -711,7 +729,7 @@
       "createTime": 1615778715619,
       "star": 600,
       "view": 984,
-      "id": 3,
+      "id": "3",
       "publishTime": 1615778911762
     },
     {
@@ -726,7 +744,7 @@
       "createTime": 1615778740202,
       "star": 800,
       "view": 869,
-      "id": 4,
+      "id": "4",
       "publishTime": 1615778912481
     },
     {
@@ -741,7 +759,7 @@
       "createTime": 1615778777924,
       "star": 100,
       "view": 202,
-      "id": 5,
+      "id": "5",
       "publishTime": 1615778914498
     },
     {
@@ -756,7 +774,7 @@
       "createTime": 1615778808893,
       "star": 300,
       "view": 454,
-      "id": 6,
+      "id": "6",
       "publishTime": 1615778916224
     },
     {
@@ -771,7 +789,7 @@
       "createTime": 1615778852584,
       "star": 309,
       "view": 479,
-      "id": 7,
+      "id": "7",
       "publishTime": 1615778917074
     },
     {
@@ -786,7 +804,7 @@
       "createTime": 1615778891518,
       "star": 781,
       "view": 890,
-      "id": 8,
+      "id": "8",
       "publishTime": 1615778917615
     },
     {
@@ -801,7 +819,7 @@
       "createTime": 1650074265303,
       "star": 0,
       "view": 0,
-      "id": 10,
+      "id": "10",
       "publishTime": 1650199807878
     },
     {
@@ -816,7 +834,7 @@
       "createTime": 1650099881297,
       "star": 0,
       "view": 0,
-      "id": 11,
+      "id": "11",
       "publishTime": 1650181366522
     },
     {
@@ -831,7 +849,7 @@
       "createTime": 1650163066405,
       "star": 0,
       "view": 0,
-      "id": 12,
+      "id": "12",
       "publishTime": 1650200222857
     },
     {
@@ -846,7 +864,7 @@
       "createTime": 1650166366981,
       "star": 0,
       "view": 0,
-      "id": 13
+      "id": "13"
     },
     {
       "label": "铁锤123",
@@ -860,7 +878,7 @@
       "createTime": 1650182550861,
       "star": 0,
       "view": 0,
-      "id": 14
+      "id": "14"
     },
     {
       "label": "司马海味",
@@ -874,7 +892,7 @@
       "createTime": 1650182692163,
       "star": 0,
       "view": 0,
-      "id": 15
+      "id": "15"
     },
     {
       "label": "zzzzz",
@@ -888,8 +906,42 @@
       "createTime": 1650273933747,
       "star": 12,
       "view": 5,
-      "id": 16,
+      "id": "16",
       "publishTime": 1650273950277
+    }
+  ],
+  "layouts": [
+    {
+      "layout": [
+        {
+          "w": 11,
+          "h": 8,
+          "x": 0,
+          "y": 7,
+          "i": "a",
+          "moved": false,
+          "static": false
+        },
+        {
+          "w": 11,
+          "h": 7,
+          "x": 0,
+          "y": 0,
+          "i": "b",
+          "moved": false,
+          "static": false
+        },
+        {
+          "w": 11,
+          "h": 11,
+          "x": 0,
+          "y": 15,
+          "i": "c",
+          "moved": false,
+          "static": false
+        }
+      ],
+      "id": "1"
     }
   ]
 }
